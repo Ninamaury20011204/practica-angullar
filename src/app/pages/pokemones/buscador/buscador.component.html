@@ -1,0 +1,7 @@
+<div class="buscador-container">
+    <input class="form-control form-control-lg buscador-input" #buscar (keydown.enter)="buscarPokemon(buscar.value)"
+        type="text" placeholder="Buscar Pokemon por nombre o id">
+    <button class="btn btn-primary buscador-boton" (click)="buscarPokemon(buscar.value)" type="button">
+        Buscar
+    </button>
+</div>

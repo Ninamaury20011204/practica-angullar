@@ -1,0 +1,40 @@
+<!-- Modal -->
+<div class="modal fade" #modal tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{ equipo.strTeam }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row mb-3">
+                        <div class="col-12 text-center">
+                            <img [src]="equipo.strBadge" class="img-fluid" alt="{{ equipo.strTeam }} badge"
+                                style="height: 180px; object-fit: contain;" />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-12 text-center">
+                            <p><strong>ID:</strong> {{ equipo.idTeam }}</p>
+                            <p><strong>Liga:</strong> {{ equipo.strLeague }}</p>
+                            <p><strong>País:</strong> {{ equipo.strCountry }}</p>
+                            <p><strong>Estadio:</strong> {{ equipo.strStadium }}</p>
+                            <p><strong>Capacidad:</strong> {{ equipo.intStadiumCapacity }}</p>
+                            <p><strong>Descripción:</strong> {{ equipo.strDescriptionEN }}</p>
+                            <p><strong>Facebook:</strong>
+                                <a [href]="equipo.strFacebook" target="_blank">{{ equipo.strFacebook }}</a>
+                            </p>
+                            <p><strong>Twitter:</strong>
+                                <a [href]="equipo.strTwitter" target="_blank">{{ equipo.strTwitter }}</a>
+                            </p>
+                            <p><strong>Instagram:</strong>
+                                <a [href]="equipo.strInstagram" target="_blank">{{ equipo.strInstagram }}</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

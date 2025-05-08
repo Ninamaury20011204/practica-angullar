@@ -1,0 +1,53 @@
+<div class="modal fade" #modal id="pokemonModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="pokemonModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content border-0 rounded-4 shadow-lg overflow-hidden">
+            <!-- HEADER -->
+            <div class="modal-header bg-primary text-white border-bottom-0">
+                <h4 class="modal-title text-uppercase fw-bold" id="pokemonModalLabel">{{ pokemon.name }}</h4>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <!-- BODY -->
+            <div class="modal-body p-4">
+                <div class="row align-items-center g-5">
+                    <!-- Imagen a la izquierda -->
+                    <div class="col-md-5 text-center">
+                        <img [src]="pokemon.sprites.other?.dream_world?.front_default"
+                            class="img-fluid rounded-4 shadow" alt="{{ pokemon.name }}">
+                    </div>
+
+                    <!-- Datos a la derecha -->
+                    <div class="col-md-7">
+                        <div class="bg-light p-4 rounded-3 shadow-sm">
+                            <h5 class="text-primary fw-bold mb-3">Información del Pokémon</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><strong>Altura:</strong> {{ pokemon.height }} m</li>
+                                <li class="list-group-item"><strong>Peso:</strong> {{ pokemon.weight }} kg</li>
+                                <li class="list-group-item"><strong>Experiencia Base:</strong> {{ pokemon.base_experience }}</li>
+                                <li class="list-group-item"><strong>Especie:</strong> {{ pokemon.species.name }}</li>
+                                <li class="list-group-item">
+                                    <strong>Habilidades:</strong>
+                                    <span *ngFor="let ability of pokemon?.abilities; let isLast = last">
+                                        {{ ability.ability.name }}{{ !isLast ? ', ' : '' }}
+                                    </span>
+                                </li>
+                                <li class="list-group-item">
+                                    <strong>Tipos:</strong>
+                                    <span *ngFor="let type of pokemon?.types; let isLast = last">
+                                        {{ type.type.name }}{{ !isLast ? ', ' : '' }}
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <div class="modal-footer border-top-0 justify-content-center">
+                <button type="button" class="btn btn-outline-dark px-4" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

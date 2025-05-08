@@ -1,0 +1,26 @@
+<div class="container">
+    <ng-container *ngIf="equipos && equipos.length > 0; else noEquipos">
+        <div class="row mx-auto justify-content-center">
+            <div class="col-12 col-md-6 col-lg-4 mb-4" *ngFor="let card of equipos">
+                <div class="card h-100" *ngIf="card.strBadge">
+                    <img [src]="card.strBadge" class="card-img-top p-2" alt="{{card.strTeam}} badge"
+                        style="height: 180px; object-fit: contain;" />
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ card.strTeam }}</h5>
+                        <p class="card-text">ID: {{ card.idTeam }}</p>
+                        <p class="card-text">Liga: {{ card.strLeague }}</p>
+                        <a  class="btn btn-primary" (click)="openModal(card)">Más información</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-template #noEquipos>
+        <div class="alert alert-warning text-center mt-4" role="alert">
+            No hay equipos disponibles.
+        </div>
+    </ng-template>
+</div>
+
+<app-modal></app-modal>

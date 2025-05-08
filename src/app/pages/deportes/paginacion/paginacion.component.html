@@ -1,0 +1,18 @@
+<div class="container-b row d-flex">
+    <ng-container *ngIf="paises.length > 0; else noData">
+        <div *ngFor="let ban of paises" class="col-auto mb-2">
+            <img [title]="ban.nombre" (click)="mandarpais(ban.nombre)" [src]="'https://flagcdn.com/w40/' + ban.codigo + '.png'" [alt]="'Bandera de ' + ban.nombre">
+        </div>
+
+        <div class="text-center">
+            <h2>{{pais1}}</h2>
+        </div>
+    </ng-container>
+</div>
+
+
+<ng-template #noData>
+    <div class="alert alert-danger" role="alert">
+        No hay datos disponibles.
+    </div>
+</ng-template>
